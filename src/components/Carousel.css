@@ -1,0 +1,17 @@
+.swiper { overflow: inherit; }
+.swiper-horizontal > .swiper-pagination-bullets { bottom: -30px; }
+.swiper-slide img { width: 100%; }
+.swiper-slide .img_box { display: flex; justify-content: center; align-items: center; overflow: hidden; max-height: 300px; }
+.swiper-wrapper { align-items: center; }
+.swiper-slide { z-index: 1; transform: scale(0.8); }
+.swiper-slide.swiper-slide-next { z-index: 3; transform: scale(1); transition: all ease 0.7s; }
+
+.desc { padding: 1.5rem 1rem; }
+.desc span { flex-grow: 1; padding: 0.3rem 0.7rem; }
+.desc span:last-child { text-align: right; }
+.desc span:first-child { background-color: #eee; text-align: center; border-radius: 20px; flex-grow: 0; }
+.shadow {
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+    border-radius: 5px;
+    overflow: hidden;
+}

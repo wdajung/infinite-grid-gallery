@@ -1,0 +1,17 @@
+.grid_container { margin: 0 2rem; }
+.grid_container .container { width: 100%; height: 600px; }
+.item { display: inline-block; width: calc(25% - 5px); opacity: 0;transition: all ease 1s .5s; transform: scale(0);  }
+.placeholder {
+    width:  calc(25% - 5px);
+    border-radius: 5px;
+    background: #eee;
+    height: 250px;
+  }
+
+.item.animate { transition: opacity ease 1s; opacity: 1; }
+.item.animated { opacity: 1; transform-origin: 50% 50%; transform: scale(1); }
+.masonrygrid.horizontal .item { width: auto; height: 250px; }
+.item .thumbnail { overflow: hidden; border-radius: 8px; }
+.item .thumbnail img { width: 100%; border-radius: 8px; }
+.masonrygrid.horizontal .item .thumbnail img { width: auto; height: 210px; }
+.loading { position: absolute; width: 100%; height: 50px; line-height: 50px; text-align: center;  }
