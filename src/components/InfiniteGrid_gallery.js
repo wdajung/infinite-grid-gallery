@@ -1,7 +1,7 @@
 import * as React from "react";
 import { MasonryInfiniteGrid } from "@egjs/react-infinitegrid";
 import "./InfiniteGrid_gallery.css";
-
+import { useState, useEffect } from "react";
 function getItems(nextGroupKey, count) {
     const nextItems = [];
     const nextKey = nextGroupKey * count;
@@ -26,8 +26,14 @@ const Item = ({ photos, num }) => (
 );
 
 const InfiniteGrid_gallery = ({ photos }) => {
-    const [items, setItems] = React.useState(() => getItems(0, 10));
-    React.useEffect(() => {}, [items]);
+    const [items, setItems] = React.useState(() => getItems(0, 30));
+    const [isMobile, setIsMobile] = useState();
+    const checkMobile = () => {
+        window.innerWidth < 769 ? setIsMobile(true) : setIsMobile(false);
+    };
+    useEffect(() => {
+        checkMobile();
+    }, []);
 
     return (
         <div className='grid_container'>
@@ -40,8 +46,10 @@ const InfiniteGrid_gallery = ({ photos }) => {
                     e.wait();
                     setTimeout(() => {
                         e.ready();
-                        setItems([...items, ...getItems(nextGroupKey, 10)]);
+                        setItems([...items, ...getItems(nextGroupKey, 30)]);
                     }, 1000);
+                    checkMobile();
+                    isMobile ? console.log(1) : console.log(2);
                 }}
                 onRenderComplete={e => {
                     //console.log(e);

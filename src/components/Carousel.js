@@ -1,6 +1,6 @@
 import SwiperCore, { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "swiper/swiper.scss"; // core Swiper
 import "swiper/modules/navigation/navigation.scss"; // Navigation module
 import "swiper/modules/pagination/pagination.scss"; // Pagination module
@@ -9,11 +9,15 @@ import "./Carousel.css";
 SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
 
 export default function Carousel({ photos }) {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        window.innerWidth < 769 && setIsMobile(true);
+    }, []);
     return (
         <>
             <Swiper
                 slidesPerView={3}
-                spaceBetween={30}
+                spaceBetween={1}
                 pagination={{
                     clickable: true,
                 }}
